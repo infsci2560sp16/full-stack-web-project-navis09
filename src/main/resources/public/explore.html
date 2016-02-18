@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Easybook-Explore</title>
+  <script src="js/jquery-1.12.0.js"></script>
+  <script src="js/easybook.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+</head>
+<body>
+  <div id = "container">
+    <div id="top">
+      <div id="logo">
+        <p>EasyBook</p>
+      </div>
+      <div id="navi">
+        <ul>
+          <li class="nav"><a href="index.html">Homepage</a></li>
+          <li class="nav"><a href="exchange.html">Exchange</a></li>
+          <li class="nav"><a href="inherit.html">Inherit</li>
+          <li class="nav"><a href="explore.html">Explore</li>
+          <li class="nav"><a href="signin.html">signin</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="main">
+      <hr>
+      <div id="left">
+        <div id="catogory">
+          <script>buildCatogory();</script>
+        </div>
+
+      </div>
+      <div id="right">
+        <div id="content">
+          <div id="bookdisplay">
+            <script>bookdisplay();</script>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <ul class="footer">About
+        <hr>
+        <li>Staff</li>
+        <li>Location</li>
+        <li>Policy</li>
+      </ul>
+      <ul class="footer">Contact
+        <hr>
+        <li>Phone</li>
+        <li>Email</li>
+        <li>Address</li>
+      </ul>
+    </div>
+
+    <div id="bottom">
+       Copyright@2016 EasyBook
+    </div>
+  </div>
+</body>
+</html>

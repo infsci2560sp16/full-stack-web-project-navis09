@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EasyBook Homepage</title>
+  <script src="js/jquery-1.12.0.js"></script>
+  <script src="js/easybook.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+</head>
+<body>
+
+  <div id="container">
+
+    <!--header -->
+    <div id="header" >
+      <div id="top">
+        <div id="logo">
+          <p>EasyBook</p>
+        </div>
+        <div id="navi">
+          <ul>
+            <li class="nav"><a href="index.html">Homepage</a></li>
+            <li class="nav"><a href="exchange.html">Exchange</a></li>
+            <li class="nav"><a href="inherit.html">Inherit</li>
+            <li class="nav"><a href="explore.html">Explore</li>
+            <li class="nav"><a href="signin.html">signin</a></li>
+          </ul>
+        </div>
+      </div>
+
+    <div id="slider">
+        <ul class ="slides">
+            <li class = "slide"><img src="stylesheets/img/image1.jpeg"></li>
+            <li class = "slide"><img src="stylesheets/img/image2.jpeg"></li>
+            <li class = "slide"><img src="stylesheets/img/image3.jpeg"></li>
+            <li class = "slide"><img src="stylesheets/img/image4.jpeg"></li>
+            <li class = "slide"><img src="stylesheets/img/image5.jpeg"></li>
+            <li class = "slide"><img src="stylesheets/img/image6.jpeg"></li>
+        </ul>
+    </div>
+
+
+
+        <div id="search">
+          <form name="myForm" onsubmit="return validateForm()" method="post">
+            search <input type="text" name="fname">
+            <input id="go" type="submit" value="GO">
+          </form>
+        </div>
+
+    </div>
+    <!--header end-->
+
+    <div id="main">
+      <div id="exchange">
+        <p>You can get your dreamed books without any pay.
+        </p>
+        <button type="button" name="button" >Learn more</button>
+        <div class="pic">
+          <img src="img/image6.jpeg"></img>
+        </div>
+      </div>
+      <div id="inherit">
+        <p>Price too high to get textbooks? Don't worry! We can help you.
+        </p>
+        <div class="pic">
+
+        </div>
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <ul class="footer">About
+        <hr>
+        <li>Staff</li>
+        <li>Location</li>
+        <li>Policy</li>
+      </ul>
+      <ul class="footer">Contact
+        <hr>
+        <li>Phone</li>
+        <li>Email</li>
+        <li>Address</li>
+      </ul>
+    </div>
+
+    <div id="bottom">
+       Copyright@2016 EasyBook
+    </div>
+  </div>
+</body>
+</html>
