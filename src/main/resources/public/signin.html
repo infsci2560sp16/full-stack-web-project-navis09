@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>sign in</title>
   <script src="js/jquery-1.12.0.js"></script>
   <script src="js/easybook.js"></script>
@@ -16,7 +17,7 @@
 
       <div id="panel1" class="panel active">
 
-        <form name="myForm" action="" method="post">
+        <form name="myForm" method="post">
           <p>Email</p>
           <input type="text" name="email" onchange="validateEmail()">
           <p id="alerte"></p>
@@ -30,7 +31,7 @@
       </div>
 
       <div id="panel2" class="panel">
-        <form name="myForm2" action="" method="post">
+        <form name="myForm2" method="post">
           <p>Username</p>
           <input type="text" name="username">
           <p>Email</p>
