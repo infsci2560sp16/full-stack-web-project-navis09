@@ -1433,7 +1433,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	};
 
 	return document;
-});
+};
 
 Sizzle.matches = function( expr, elements ) {
 	return Sizzle( expr, null, null, elements );
@@ -2082,10 +2082,10 @@ Expr = Sizzle.selectors = {
 // Expr.pseudos["nth"] = Expr.pseudos.["eq"];
 
 // Add button/input type pseudos
-for ( var i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
+for ( i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
 	Expr.pseudos[ i ] = createInputPseudo( i );
 }
-for ( var i in { submit: true, reset: true } ) {
+for ( i in { submit: true, reset: true } ) {
 	Expr.pseudos[ i ] = createButtonPseudo( i );
 }
 
@@ -2710,7 +2710,7 @@ if ( !assert(function( div ) {
 
 return Sizzle;
 
-})( window ));
+})( window );
 
 
 
