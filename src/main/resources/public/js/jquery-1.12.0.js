@@ -1159,35 +1159,35 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Tag
 	// Expr.find["TAG"] = support.getElementsByTagName ?
-		function( tag, context ) {
-			if ( typeof context.getElementsByTagName !== "undefined" ) {
-				return context.getElementsByTagName( tag );
-
-			// DocumentFragment nodes don't have gEBTN
-			} else if ( support.qsa ) {
-				return context.querySelectorAll( tag );
-			}
-		} :
-
-		function( tag, context ) {
-			var elem,
-				tmp = [],
-				i = 0,
-				// By happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
-				results = context.getElementsByTagName( tag );
-
-			// Filter out possible comments
-			if ( tag === "*" ) {
-				while ( (elem = results[i++]) ) {
-					if ( elem.nodeType === 1 ) {
-						tmp.push( elem );
-					}
-				}
-
-				return tmp;
-			}
-			return results;
-		};
+		// function change( tag, context ) {
+		// 	if ( typeof context.getElementsByTagName !== "undefined" ) {
+		// 		return context.getElementsByTagName( tag );
+		//
+		// 	// DocumentFragment nodes don't have gEBTN
+		// 	} else if ( support.qsa ) {
+		// 		return context.querySelectorAll( tag );
+		// 	}
+		// } :
+		//
+		// function( tag, context ) {
+		// 	var elem,
+		// 		tmp = [],
+		// 		i = 0,
+		// 		// By happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
+		// 		results = context.getElementsByTagName( tag );
+		//
+		// 	// Filter out possible comments
+		// 	if ( tag === "*" ) {
+		// 		while ( (elem = results[i++]) ) {
+		// 			if ( elem.nodeType === 1 ) {
+		// 				tmp.push( elem );
+		// 			}
+		// 		}
+		//
+		// 		return tmp;
+		// 	}
+		// 	return results;
+		// };
 
 	// Class
 	// Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {
@@ -1433,7 +1433,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	};
 
 	return document;
-};
+});
 
 Sizzle.matches = function( expr, elements ) {
 	return Sizzle( expr, null, null, elements );
@@ -2082,10 +2082,10 @@ Expr = Sizzle.selectors = {
 // Expr.pseudos["nth"] = Expr.pseudos.["eq"];
 
 // Add button/input type pseudos
-for ( i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
+for ( var i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
 	Expr.pseudos[ i ] = createInputPseudo( i );
 }
-for ( i in { submit: true, reset: true } ) {
+for ( var i in { submit: true, reset: true } ) {
 	Expr.pseudos[ i ] = createButtonPseudo( i );
 }
 
@@ -2710,7 +2710,7 @@ if ( !assert(function( div ) {
 
 return Sizzle;
 
-})( window );
+})( window ));
 
 
 
