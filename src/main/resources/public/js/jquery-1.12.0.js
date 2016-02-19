@@ -748,7 +748,7 @@ try {
 	);
 	// Support: Android<4.0
 	// Detect silently failing push.apply
-	arr[ preferredDoc.childNodes.length ];
+	arr[ preferredDoc.childNodes.length. ].nodeType();
 } catch ( e ) {
 	push = { apply: arr.length ?
 
@@ -1130,13 +1130,13 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// ID find and filter
 	if ( support.getById ) {
-		Expr.find['ID'] = function( id, context ) {
+		Expr.find."ID" = function( id, context ) {
 			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
 				var m = context.getElementById( id );
 				return m ? [ m ] : [];
 			}
 		};
-		Expr.filter['ID'] = function( id ) {
+		Expr.filter."ID" = function( id ) {
 			var attrId = id.replace( runescape, funescape );
 			return function( elem ) {
 				return elem.getAttribute("id") === attrId;
@@ -1145,9 +1145,9 @@ setDocument = Sizzle.setDocument = function( node ) {
 	} else {
 		// Support: IE6/7
 		// getElementById is not reliable as a find shortcut
-		delete Expr.find['ID'];
+		delete Expr.find."ID";
 
-		Expr.filter['ID'] =  function( id ) {
+		Expr.filter."ID" =  function( id ) {
 			var attrId = id.replace( runescape, funescape );
 			return function( elem ) {
 				var node = typeof elem.getAttributeNode !== "undefined" &&
@@ -1158,7 +1158,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	}
 
 	// Tag
-	Expr.find['TAG'] = support.getElementsByTagName ?
+	Expr.find."TAG" = support.getElementsByTagName ?
 		function( tag, context ) {
 			if ( typeof context.getElementsByTagName !== "undefined" ) {
 				return context.getElementsByTagName( tag );
@@ -1190,7 +1190,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		};
 
 	// Class
-	Expr.find['CLASS'] = support.getElementsByClassName && function( className, context ) {
+	Expr.find."CLASS" = support.getElementsByClassName && function( className, context ) {
 		if ( typeof context.getElementsByClassName !== "undefined" && documentIsHTML ) {
 			return context.getElementsByClassName( className );
 		}
@@ -1640,7 +1640,7 @@ Expr = Sizzle.selectors = {
 			var excess,
 				unquoted = !match[6] && match[2];
 
-			if ( matchExpr['CHILD'].test( match[0] ) ) {
+			if ( matchExpr."CHILD".test( match[0] ) ) {
 				return null;
 			}
 
@@ -2005,7 +2005,7 @@ Expr = Sizzle.selectors = {
 		},
 
 		"parent": function( elem ) {
-			return !Expr.pseudos['empty']( elem );
+			return !Expr.pseudos."empty"( elem );
 		},
 
 		// Element/input types
@@ -2029,7 +2029,7 @@ Expr = Sizzle.selectors = {
 
 				// Support: IE<8
 				// New HTML5 attribute values (e.g., "search") appear with elem.type === "text"
-				( (attr = elem.getAttribute('type')) == null || attr.toLowerCase() === "text" );
+				( (attr = elem.getAttribute('type')) === null || attr.toLowerCase() === "text" );
 		},
 
 		// Position-in-collection
@@ -2079,7 +2079,7 @@ Expr = Sizzle.selectors = {
 	}
 };
 
-Expr.pseudos['nth'] = Expr.pseudos['eq'];
+Expr.pseudos."nth" = Expr.pseudos."eq";
 
 // Add button/input type pseudos
 for ( i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
@@ -2435,7 +2435,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				setMatched = [],
 				contextBackup = outermostContext,
 				// We must always have either seed elements or outermost context
-				elems = seed || byElement && Expr.find['TAG']( "*", outermost ),
+				elems = seed || byElement && Expr.find."TAG"( "*", outermost ),
 				// Use integer dirruns iff this is the outermost matcher
 				dirrunsUnique = (dirruns += contextBackup === null ? 1 : Math.random() || 0.1),
 				len = elems.length;
@@ -2591,7 +2591,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 				support.getById && context.nodeType === 9 && documentIsHTML &&
 				Expr.relative[ tokens[1].type ] ) {
 
-			context = ( Expr.find['ID']( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
+			context = ( Expr.find."ID"( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
 			if ( !context ) {
 				return results;
 
@@ -2604,7 +2604,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 		}
 
 		// Fetch a seed set for right-to-left matching
-		i = matchExpr['needsContext'].test( selector ) ? 0 : tokens.length;
+		i = matchExpr."needsContext".test( selector ) ? 0 : tokens.length;
 		while ( i-- ) {
 			token = tokens[i];
 
@@ -2695,7 +2695,7 @@ if ( !support.attributes || !assert(function( div ) {
 // Support: IE<9
 // Use getAttributeNode to fetch booleans when getAttribute lies
 if ( !assert(function( div ) {
-	return div.getAttribute('disabled') == null;
+	return div.getAttribute('disabled') === null;
 }) ) {
 	addHandle( booleans, function( elem, name, isXML ) {
 		var val;
@@ -6327,8 +6327,8 @@ jQuery.fn.extend( {
 	},
 
 	clone: function( dataAndEvents, deepDataAndEvents ) {
-		dataAndEvents = dataAndEvents == null ? false : dataAndEvents;
-		deepDataAndEvents = deepDataAndEvents == null ? dataAndEvents : deepDataAndEvents;
+		dataAndEvents = dataAndEvents === null ? false : dataAndEvents;
+		deepDataAndEvents = deepDataAndEvents === null ? dataAndEvents : deepDataAndEvents;
 
 		return this.map( function() {
 			return jQuery.clone( this, dataAndEvents, deepDataAndEvents );
@@ -6554,7 +6554,7 @@ var documentElement = document.documentElement;
 
 	jQuery.extend( support, {
 		reliableHiddenOffsets: function() {
-			if ( pixelPositionVal == null ) {
+			if ( pixelPositionVal === null ) {
 				computeStyleTests();
 			}
 			return reliableHiddenOffsetsVal;
@@ -6564,7 +6564,7 @@ var documentElement = document.documentElement;
 
 			// We're checking for pixelPositionVal here instead of boxSizingReliableVal
 			// since that compresses better and they're computed together anyway.
-			if ( pixelPositionVal == null ) {
+			if ( pixelPositionVal === null ) {
 				computeStyleTests();
 			}
 			return boxSizingReliableVal;
@@ -6573,14 +6573,14 @@ var documentElement = document.documentElement;
 		pixelMarginRight: function() {
 
 			// Support: Android 4.0-4.3
-			if ( pixelPositionVal == null ) {
+			if ( pixelPositionVal === null ) {
 				computeStyleTests();
 			}
 			return pixelMarginRightVal;
 		},
 
 		pixelPosition: function() {
-			if ( pixelPositionVal == null ) {
+			if ( pixelPositionVal === null ) {
 				computeStyleTests();
 			}
 			return pixelPositionVal;
@@ -6589,7 +6589,7 @@ var documentElement = document.documentElement;
 		reliableMarginRight: function() {
 
 			// Support: Android 2.3
-			if ( pixelPositionVal == null ) {
+			if ( pixelPositionVal === null ) {
 				computeStyleTests();
 			}
 			return reliableMarginRightVal;
@@ -6598,7 +6598,7 @@ var documentElement = document.documentElement;
 		reliableMarginLeft: function() {
 
 			// Support: IE <=8 only, Android 4.0 - 4.3 only, Firefox <=3 - 37
-			if ( pixelPositionVal == null ) {
+			if ( pixelPositionVal === null ) {
 				computeStyleTests();
 			}
 			return reliableMarginLeftVal;
@@ -6768,7 +6768,7 @@ if ( window.getComputedStyle ) {
 
 		// Avoid setting ret to empty string here
 		// so we don't default to auto
-		if ( ret == null && style && style[ name ] ) {
+		if ( ret === null && style && style[ name ] ) {
 			ret = style[ name ];
 		}
 
@@ -7010,11 +7010,11 @@ function getWidthOrHeight( elem, name, extra ) {
 	// some non-html elements return undefined for offsetWidth, so check for null/undefined
 	// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
 	// MathML - https://bugzilla.mozilla.org/show_bug.cgi?id=491668
-	if ( val <= 0 || val == null ) {
+	if ( val <= 0 || val === null ) {
 
 		// Fall back to computed then uncomputed css if necessary
 		val = curCSS( elem, name, styles );
-		if ( val < 0 || val == null ) {
+		if ( val < 0 || val === null ) {
 			val = elem.style[ name ];
 		}
 
@@ -7119,7 +7119,7 @@ jQuery.extend( {
 			}
 
 			// Make sure that null and NaN values aren't set. See: #7116
-			if ( value == null || value !== value ) {
+			if ( value === null || value !== value ) {
 				return;
 			}
 
@@ -7440,7 +7440,7 @@ Tween.propHooks = {
 			// Use a property on the element directly when it is not a DOM element,
 			// or when there is no matching style property that exists.
 			if ( tween.elem.nodeType !== 1 ||
-				tween.elem[ tween.prop ] != null && tween.elem.style[ tween.prop ] == null ) {
+				tween.elem[ tween.prop ] !== null && tween.elem.style[ tween.prop ] === null ) {
 				return tween.elem[ tween.prop ];
 			}
 
@@ -7460,7 +7460,7 @@ Tween.propHooks = {
 			if ( jQuery.fx.step[ tween.prop ] ) {
 				jQuery.fx.step[ tween.prop ]( tween );
 			} else if ( tween.elem.nodeType === 1 &&
-				( tween.elem.style[ jQuery.cssProps[ tween.prop ] ] != null ||
+				( tween.elem.style[ jQuery.cssProps[ tween.prop ] ] !== null ||
 					jQuery.cssHooks[ tween.prop ] ) ) {
 				jQuery.style( tween.elem, tween.prop, tween.now + tween.unit );
 			} else {
@@ -7559,7 +7559,7 @@ function defaultPrefilter( elem, props, opts ) {
 	// handle queue: false promises
 	if ( !opts.queue ) {
 		hooks = jQuery._queueHooks( elem, "fx" );
-		if ( hooks.unqueued == null ) {
+		if ( hooks.unqueued === null ) {
 			hooks.unqueued = 0;
 			oldfire = hooks.empty.fire;
 			hooks.empty.fire = function() {
@@ -7898,7 +7898,7 @@ jQuery.speed = function( speed, easing, fn ) {
 			jQuery.fx.speeds[ opt.duration ] : jQuery.fx.speeds._default;
 
 	// normalize opt.queue - true/undefined/null -> "fx"
-	if ( opt.queue == null || opt.queue === true ) {
+	if ( opt.queue === null || opt.queue === true ) {
 		opt.queue = "fx";
 	}
 
@@ -7964,7 +7964,7 @@ jQuery.fn.extend( {
 
 		return this.each( function() {
 			var dequeue = true,
-				index = type != null && type + "queueHooks",
+				index = type !== null && type + "queueHooks",
 				timers = jQuery.timers,
 				data = jQuery._data( this );
 
@@ -7982,7 +7982,7 @@ jQuery.fn.extend( {
 
 			for ( index = timers.length; index--; ) {
 				if ( timers[ index ].elem === this &&
-					( type == null || timers[ index ].queue === type ) ) {
+					( type === null || timers[ index ].queue === type ) ) {
 
 					timers[ index ].anim.stop( gotoEnd );
 					dequeue = false;
@@ -8044,7 +8044,7 @@ jQuery.fn.extend( {
 jQuery.each( [ "toggle", "show", "hide" ], function( i, name ) {
 	var cssFn = jQuery.fn[ name ];
 	jQuery.fn[ name ] = function( speed, easing, callback ) {
-		return speed == null || typeof speed === "boolean" ?
+		return speed === null || typeof speed === "boolean" ?
 			cssFn.apply( this, arguments ) :
 			this.animate( genFx( name, true ), speed, easing, callback );
 	};
@@ -8224,7 +8224,7 @@ jQuery.fn.extend( {
 					ret.replace( rreturn, "" ) :
 
 					// handle cases where value is null/undef or number
-					ret == null ? "" : ret;
+					ret === null ? "" : ret;
 			}
 
 			return;
@@ -8246,13 +8246,13 @@ jQuery.fn.extend( {
 			}
 
 			// Treat null/undefined as ""; convert numbers to string
-			if ( val == null ) {
+			if ( val === null ) {
 				val = "";
 			} else if ( typeof val === "number" ) {
 				val += "";
 			} else if ( jQuery.isArray( val ) ) {
 				val = jQuery.map( val, function( value ) {
-					return value == null ? "" : value + "";
+					return value === null ? "" : value + "";
 				} );
 			}
 
@@ -8271,7 +8271,7 @@ jQuery.extend( {
 		option: {
 			get: function( elem ) {
 				var val = jQuery.find.attr( elem, "value" );
-				return val != null ?
+				return val !== null ?
 					val :
 
 					// Support: IE10-11+
@@ -8342,7 +8342,7 @@ jQuery.extend( {
 						} catch ( _ ) {
 
 							// Will be executed only in IE6
-							option.scrollHeight;
+							option.scrollHeight();
 						}
 
 					} else {
@@ -8443,7 +8443,7 @@ jQuery.extend( {
 		ret = jQuery.find.attr( elem, name );
 
 		// Non-existent attributes return null, we normalize to undefined
-		return ret == null ? undefined : ret;
+		return ret === null ? undefined : ret;
 	},
 
 	attrHooks: {
@@ -8532,7 +8532,7 @@ jQuery.each( jQuery.expr.match.bool.source.match( /\w+/g ), function( i, name ) 
 				// Avoid an infinite loop by temporarily removing this function from the getter
 				handle = attrHandle[ name ];
 				attrHandle[ name ] = ret;
-				ret = getter( elem, name, isXML ) != null ?
+				ret = getter( elem, name, isXML ) !== null ?
 					name.toLowerCase() :
 					null;
 				attrHandle[ name ] = handle;
@@ -8757,11 +8757,11 @@ if ( !support.optSelected ) {
 			var parent = elem.parentNode;
 
 			if ( parent ) {
-				parent.selectedIndex;
+				parent.selectedIndex();
 
 				// Make sure that it also works with optgroups, see #5701
 				if ( parent.parentNode ) {
-					parent.parentNode.selectedIndex;
+					parent.parentNode.selectedIndex();
 				}
 			}
 			return null;
@@ -9035,6 +9035,7 @@ jQuery.parseJSON = function( data ) {
 		// Remove this token
 		return "";
 	} ) ) ?
+	/*jshint -W061 */
 		( Function( "return " + str ) )() :
 		jQuery.error( "Invalid JSON: " + data );
 };
@@ -9322,7 +9323,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 				if ( conv !== true ) {
 
 					// Unless errors are allowed to bubble, catch and return them
-					if ( conv && s[ "throws" ] ) { // jscs:ignore requireDotNotation
+					if ( conv && s."throws"  ) { // jscs:ignore requireDotNotation
 						response = conv( response );
 					} else {
 						try {
@@ -9516,7 +9517,7 @@ jQuery.extend( {
 						}
 						match = responseHeaders[ key.toLowerCase() ];
 					}
-					return match == null ? null : match;
+					return match === null ? null : match;
 				},
 
 				// Raw string
@@ -9592,7 +9593,7 @@ jQuery.extend( {
 		s.dataTypes = jQuery.trim( s.dataType || "*" ).toLowerCase().match( rnotwhite ) || [ "" ];
 
 		// A cross-domain request is in order when we have a protocol:host:port mismatch
-		if ( s.crossDomain == null ) {
+		if ( s.crossDomain === null ) {
 			parts = rurl.exec( s.url.toLowerCase() );
 			s.crossDomain = !!( parts &&
 				( parts[ 1 ] !== ajaxLocParts[ 1 ] || parts[ 2 ] !== ajaxLocParts[ 2 ] ||
@@ -10029,7 +10030,7 @@ function buildParams( prefix, obj, traditional, add ) {
 
 				// Item is non-scalar (array or object), encode its numeric index.
 				buildParams(
-					prefix + "[" + ( typeof v === "object" && v != null ? i : "" ) + "]",
+					prefix + "[" + ( typeof v === "object" && v !== null ? i : "" ) + "]",
 					v,
 					traditional,
 					add

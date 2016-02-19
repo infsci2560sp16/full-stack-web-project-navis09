@@ -15,6 +15,7 @@ function buildCatogory(){
   }
   document.getElementById("catogory").innerHTML="<ul>"+txt+"</ul>";
 }
+
 $(function(){
   $('.tab-panels .tabs li').on('click',function(){
     var active = $('.tab-panels .tabs li.active').attr('rel');
@@ -64,8 +65,8 @@ function pauseSlider(){
 
 function validateEmail()
 {
-var x=document.forms['myForm']['email'].value;
-var y=document.forms['myForm2']['email'].value;
+var x=document.getElementsByName('email').value;
+var y=document.getElementsByName('email2').value;
 var atpos=x.indexOf("@");
 var dotpos=x.lastIndexOf(".");
 var atpos2=y.indexOf("@");
@@ -88,8 +89,8 @@ if (atpos2<1 || dotpos2<atpos2+2 || dotpos2+2>=y.length)
 
 function validateForm()
 {
-var x=document.forms['myForm']['password'].value;
-var y=document.forms['myForm2']['password'].value;
+var x=document.getElementsByName('password').value;
+var y=document.getElementsByName('password2').value;
 if (x===null || x==="")
   {
     document.getElementById("alertp").innerHTML="Password must not be null";
