@@ -1,4 +1,4 @@
-var kind=["Business","Computer","Education","History","Medicine","Philosophy","Politics","Psychology","Science"]
+var kind=["Business","Computer","Education","History","Medicine","Philosophy","Politics","Psychology","Science"];
 var book={id:1,name:"thinking in java",quantity:10,price:" 8 points"};
 function bookdisplay(){
   var x;
@@ -14,7 +14,7 @@ function buildCatogory(){
     txt += "<li>"+kind[i]+"</li>";
   }
   document.getElementById("catogory").innerHTML="<ul>"+txt+"</ul>";
-};
+}
 $(function(){
   $('.tab-panels .tabs li').on('click',function(){
     var active = $('.tab-panels .tabs li.active').attr('rel');
@@ -64,8 +64,8 @@ function pauseSlider(){
 
 function validateEmail()
 {
-var x=document.forms["myForm"]["email"].value;
-var y=document.forms["myForm2"]["email"].value;
+var x=document.forms['myForm']['email'].value;
+var y=document.forms['myForm2']['email'].value;
 var atpos=x.indexOf("@");
 var dotpos=x.lastIndexOf(".");
 var atpos2=y.indexOf("@");
@@ -88,16 +88,16 @@ if (atpos2<1 || dotpos2<atpos2+2 || dotpos2+2>=y.length)
 
 function validateForm()
 {
-var x=document.forms["myForm"]["password"].value;
-var y=document.forms["myForm2"]["password"].value;
-if (x==null || x=="")
+var x=document.forms['myForm']['password'].value;
+var y=document.forms['myForm2']['password'].value;
+if (x===null || x==="")
   {
     document.getElementById("alertp").innerHTML="Password must not be null";
   }
   else{
     document.getElementById("alertp").innerHTML="";
   }
-if (y==null || y=="")
+if (y===null || y==="")
   {
     document.getElementById("alertp2").innerHTML="Password must not be null";
   }

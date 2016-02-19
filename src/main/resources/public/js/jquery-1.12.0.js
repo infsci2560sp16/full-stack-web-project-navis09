@@ -108,7 +108,7 @@ jQuery.fn = jQuery.prototype = {
 	// Get the Nth element in the matched element set OR
 	// Get the whole matched element set as a clean array
 	get: function( num ) {
-		return num != null ?
+		return num !== null ?
 
 			// Return just the one element from the set
 			( num < 0 ? this[ num + this.length ] : this[ num ] ) :
@@ -202,7 +202,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 	for ( ; i < length; i++ ) {
 
 		// Only deal with non-null/undefined values
-		if ( ( options = arguments[ i ] ) != null ) {
+		if ( ( options = arguments[ i ] ) !== null ) {
 
 			// Extend the base object
 			for ( name in options ) {
@@ -268,7 +268,7 @@ jQuery.extend( {
 
 	isWindow: function( obj ) {
 		/* jshint eqeqeq: false */
-		return obj != null && obj == obj.window;
+		return obj !== null && obj == obj.window;
 	},
 
 	isNumeric: function( obj ) {
@@ -329,7 +329,7 @@ jQuery.extend( {
 	},
 
 	type: function( obj ) {
-		if ( obj == null ) {
+		if ( obj === null ) {
 			return obj + "";
 		}
 		return typeof obj === "object" || typeof obj === "function" ?
@@ -384,7 +384,7 @@ jQuery.extend( {
 
 	// Support: Android<4.1, IE<9
 	trim: function( text ) {
-		return text == null ?
+		return text === null ?
 			"" :
 			( text + "" ).replace( rtrim, "" );
 	},
@@ -393,7 +393,7 @@ jQuery.extend( {
 	makeArray: function( arr, results ) {
 		var ret = results || [];
 
-		if ( arr != null ) {
+		if ( arr !== null ) {
 			if ( isArrayLike( Object( arr ) ) ) {
 				jQuery.merge( ret,
 					typeof arr === "string" ?
@@ -483,7 +483,7 @@ jQuery.extend( {
 			for ( ; i < length; i++ ) {
 				value = callback( elems[ i ], i, arg );
 
-				if ( value != null ) {
+				if ( value !== null ) {
 					ret.push( value );
 				}
 			}
@@ -493,7 +493,7 @@ jQuery.extend( {
 			for ( i in elems ) {
 				value = callback( elems[ i ], i, arg );
 
-				if ( value != null ) {
+				if ( value !== null ) {
 					ret.push( value );
 				}
 			}
@@ -748,7 +748,7 @@ try {
 	);
 	// Support: Android<4.0
 	// Detect silently failing push.apply
-	arr[ preferredDoc.childNodes.length ].nodeType;
+	arr[ preferredDoc.childNodes.length ];
 } catch ( e ) {
 	push = { apply: arr.length ?
 
@@ -1130,13 +1130,13 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// ID find and filter
 	if ( support.getById ) {
-		Expr.find["ID"] = function( id, context ) {
+		Expr.find['ID'] = function( id, context ) {
 			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
 				var m = context.getElementById( id );
 				return m ? [ m ] : [];
 			}
 		};
-		Expr.filter["ID"] = function( id ) {
+		Expr.filter['ID'] = function( id ) {
 			var attrId = id.replace( runescape, funescape );
 			return function( elem ) {
 				return elem.getAttribute("id") === attrId;
@@ -1145,9 +1145,9 @@ setDocument = Sizzle.setDocument = function( node ) {
 	} else {
 		// Support: IE6/7
 		// getElementById is not reliable as a find shortcut
-		delete Expr.find["ID"];
+		delete Expr.find['ID'];
 
-		Expr.filter["ID"] =  function( id ) {
+		Expr.filter['ID'] =  function( id ) {
 			var attrId = id.replace( runescape, funescape );
 			return function( elem ) {
 				var node = typeof elem.getAttributeNode !== "undefined" &&
@@ -1158,7 +1158,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	}
 
 	// Tag
-	Expr.find["TAG"] = support.getElementsByTagName ?
+	Expr.find['TAG'] = support.getElementsByTagName ?
 		function( tag, context ) {
 			if ( typeof context.getElementsByTagName !== "undefined" ) {
 				return context.getElementsByTagName( tag );
@@ -1190,7 +1190,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		};
 
 	// Class
-	Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {
+	Expr.find['CLASS'] = support.getElementsByClassName && function( className, context ) {
 		if ( typeof context.getElementsByClassName !== "undefined" && documentIsHTML ) {
 			return context.getElementsByClassName( className );
 		}
@@ -1640,7 +1640,7 @@ Expr = Sizzle.selectors = {
 			var excess,
 				unquoted = !match[6] && match[2];
 
-			if ( matchExpr["CHILD"].test( match[0] ) ) {
+			if ( matchExpr['CHILD'].test( match[0] ) ) {
 				return null;
 			}
 
@@ -1690,7 +1690,7 @@ Expr = Sizzle.selectors = {
 			return function( elem ) {
 				var result = Sizzle.attr( elem, name );
 
-				if ( result == null ) {
+				if ( result === null ) {
 					return operator === "!=";
 				}
 				if ( !operator ) {
@@ -1984,7 +1984,7 @@ Expr = Sizzle.selectors = {
 			// Accessing this property makes selected-by-default
 			// options in Safari work properly
 			if ( elem.parentNode ) {
-				elem.parentNode.selectedIndex;
+				elem.parentNode.selectedIndex();
 			}
 
 			return elem.selected === true;
@@ -2005,7 +2005,7 @@ Expr = Sizzle.selectors = {
 		},
 
 		"parent": function( elem ) {
-			return !Expr.pseudos["empty"]( elem );
+			return !Expr.pseudos['empty']( elem );
 		},
 
 		// Element/input types
@@ -2029,7 +2029,7 @@ Expr = Sizzle.selectors = {
 
 				// Support: IE<8
 				// New HTML5 attribute values (e.g., "search") appear with elem.type === "text"
-				( (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === "text" );
+				( (attr = elem.getAttribute('type')) == null || attr.toLowerCase() === "text" );
 		},
 
 		// Position-in-collection
@@ -2079,7 +2079,7 @@ Expr = Sizzle.selectors = {
 	}
 };
 
-Expr.pseudos["nth"] = Expr.pseudos["eq"];
+Expr.pseudos['nth'] = Expr.pseudos['eq'];
 
 // Add button/input type pseudos
 for ( i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
@@ -2257,7 +2257,7 @@ function condense( unmatched, map, filter, context, xml ) {
 		newUnmatched = [],
 		i = 0,
 		len = unmatched.length,
-		mapped = map != null;
+		mapped = map !== null;
 
 	for ( ; i < len; i++ ) {
 		if ( (elem = unmatched[i]) ) {
@@ -2435,9 +2435,9 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				setMatched = [],
 				contextBackup = outermostContext,
 				// We must always have either seed elements or outermost context
-				elems = seed || byElement && Expr.find["TAG"]( "*", outermost ),
+				elems = seed || byElement && Expr.find['TAG']( "*", outermost ),
 				// Use integer dirruns iff this is the outermost matcher
-				dirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),
+				dirrunsUnique = (dirruns += contextBackup === null ? 1 : Math.random() || 0.1),
 				len = elems.length;
 
 			if ( outermost ) {
@@ -2447,7 +2447,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			// Add elements passing elementMatchers directly to results
 			// Support: IE<9, Safari
 			// Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements by id
-			for ( ; i !== len && (elem = elems[i]) != null; i++ ) {
+			for ( ; i !== len && (elem = elems[i]) !== null; i++ ) {
 				if ( byElement && elem ) {
 					j = 0;
 					if ( !context && elem.ownerDocument !== document ) {
@@ -2591,7 +2591,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 				support.getById && context.nodeType === 9 && documentIsHTML &&
 				Expr.relative[ tokens[1].type ] ) {
 
-			context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
+			context = ( Expr.find['ID']( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
 			if ( !context ) {
 				return results;
 
@@ -2604,7 +2604,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 		}
 
 		// Fetch a seed set for right-to-left matching
-		i = matchExpr["needsContext"].test( selector ) ? 0 : tokens.length;
+		i = matchExpr['needsContext'].test( selector ) ? 0 : tokens.length;
 		while ( i-- ) {
 			token = tokens[i];
 
@@ -2695,7 +2695,7 @@ if ( !support.attributes || !assert(function( div ) {
 // Support: IE<9
 // Use getAttributeNode to fetch booleans when getAttribute lies
 if ( !assert(function( div ) {
-	return div.getAttribute("disabled") == null;
+	return div.getAttribute('disabled') == null;
 }) ) {
 	addHandle( booleans, function( elem, name, isXML ) {
 		var val;
@@ -3069,7 +3069,7 @@ jQuery.fn.extend( {
 	},
 
 	addBack: function( selector ) {
-		return this.add( selector == null ?
+		return this.add( selector === null ?
 			this.prevObject : this.prevObject.filter( selector )
 		);
 	}
@@ -3429,7 +3429,7 @@ jQuery.extend( {
 				// Get a promise for this deferred
 				// If obj is provided, the promise aspect is added to the object
 				promise: function( obj ) {
-					return obj != null ? jQuery.extend( obj, promise ) : promise;
+					return obj !== null ? jQuery.extend( obj, promise ) : promise;
 				}
 			},
 			deferred = {};
@@ -3657,7 +3657,7 @@ jQuery.ready.promise = function( obj ) {
 			var top = false;
 
 			try {
-				top = window.frameElement == null && document.documentElement;
+				top = window.frameElement === null && document.documentElement;
 			} catch ( e ) {}
 
 			if ( top && top.doScroll ) {
@@ -3907,7 +3907,7 @@ function internalData( elem, name, data, pvt /* Internal Use Only */ ) {
 		ret = thisCache[ name ];
 
 		// Test for null|undefined property data
-		if ( ret == null ) {
+		if ( ret === null ) {
 
 			// Try to find the camelCased property
 			ret = thisCache[ jQuery.camelCase( name ) ];
@@ -4249,7 +4249,7 @@ jQuery.fn.extend( {
 	var shrinkWrapBlocksVal;
 
 	support.shrinkWrapBlocks = function() {
-		if ( shrinkWrapBlocksVal != null ) {
+		if ( shrinkWrapBlocksVal !== null ) {
 			return shrinkWrapBlocksVal;
 		}
 
@@ -4376,7 +4376,7 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 var access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
 	var i = 0,
 		length = elems.length,
-		bulk = key == null;
+		bulk = key === null;
 
 	// Sets many values
 	if ( jQuery.type( key ) === "object" ) {
@@ -4557,7 +4557,7 @@ function getAll( context, tag ) {
 
 	if ( !found ) {
 		for ( found = [], elems = context.childNodes || context;
-			( elem = elems[ i ] ) != null;
+			( elem = elems[ i ] ) !== null;
 			i++
 		) {
 			if ( !tag || jQuery.nodeName( elem, tag ) ) {
@@ -4578,7 +4578,7 @@ function getAll( context, tag ) {
 function setGlobalEval( elems, refElements ) {
 	var elem,
 		i = 0;
-	for ( ; ( elem = elems[ i ] ) != null; i++ ) {
+	for ( ; ( elem = elems[ i ] ) !== null; i++ ) {
 		jQuery._data(
 			elem,
 			"globalEval",
@@ -4792,12 +4792,12 @@ function on( elem, types, selector, data, fn, one ) {
 		return elem;
 	}
 
-	if ( data == null && fn == null ) {
+	if ( data ===null && fn === null ) {
 
 		// ( types, fn )
 		fn = selector;
 		data = selector = undefined;
-	} else if ( fn == null ) {
+	} else if ( fn === null ) {
 		if ( typeof selector === "string" ) {
 
 			// ( types, selector, fn )
@@ -5086,7 +5086,7 @@ jQuery.event = {
 		}
 
 		// Clone any incoming data and prepend the event, creating the handler arg list
-		data = data == null ?
+		data = data === null ?
 			[ event ] :
 			jQuery.makeArray( data, [ event ] );
 
@@ -5354,8 +5354,8 @@ jQuery.event = {
 		filter: function( event, original ) {
 
 			// Add which for key events
-			if ( event.which == null ) {
-				event.which = original.charCode != null ? original.charCode : original.keyCode;
+			if ( event.which === null ) {
+				event.which = original.charCode !== null ? original.charCode : original.keyCode;
 			}
 
 			return event;
@@ -5371,7 +5371,7 @@ jQuery.event = {
 				fromElement = original.fromElement;
 
 			// Calculate pageX/Y if missing and clientX/Y available
-			if ( event.pageX == null && original.clientX != null ) {
+			if ( event.pageX === null && original.clientX !== null ) {
 				eventDoc = event.target.ownerDocument || document;
 				doc = eventDoc.documentElement;
 				body = eventDoc.body;
@@ -6109,7 +6109,7 @@ function remove( elem, selector, keepData ) {
 		elems = selector ? jQuery.filter( selector, elem ) : elem,
 		i = 0;
 
-	for ( ; ( node = elems[ i ] ) != null; i++ ) {
+	for ( ; ( node = elems[ i ] ) !== null; i++ ) {
 
 		if ( !keepData && node.nodeType === 1 ) {
 			jQuery.cleanData( getAll( node ) );
@@ -6154,7 +6154,7 @@ jQuery.extend( {
 			srcElements = getAll( elem );
 
 			// Fix all IE cloning issues
-			for ( i = 0; ( node = srcElements[ i ] ) != null; ++i ) {
+			for ( i = 0; ( node = srcElements[ i ] ) !== null; ++i ) {
 
 				// Ensure that the destination node is not null; Fixes #9587
 				if ( destElements[ i ] ) {
@@ -6169,7 +6169,7 @@ jQuery.extend( {
 				srcElements = srcElements || getAll( elem );
 				destElements = destElements || getAll( clone );
 
-				for ( i = 0; ( node = srcElements[ i ] ) != null; i++ ) {
+				for ( i = 0; ( node = srcElements[ i ] ) !== null; i++ ) {
 					cloneCopyEvent( node, destElements[ i ] );
 				}
 			} else {
@@ -6197,7 +6197,7 @@ jQuery.extend( {
 			attributes = support.attributes,
 			special = jQuery.event.special;
 
-		for ( ; ( elem = elems[ i ] ) != null; i++ ) {
+		for ( ; ( elem = elems[ i ] ) !== null; i++ ) {
 			if ( forceAcceptData || acceptData( elem ) ) {
 
 				id = elem[ internalKey ];
@@ -6304,7 +6304,7 @@ jQuery.fn.extend( {
 		var elem,
 			i = 0;
 
-		for ( ; ( elem = this[ i ] ) != null; i++ ) {
+		for ( ; ( elem = this[ i ] ) !== null; i++ ) {
 
 			// Remove element nodes and prevent memory leaks
 			if ( elem.nodeType === 1 ) {
