@@ -1129,36 +1129,36 @@ setDocument = Sizzle.setDocument = function( node ) {
 	});
 
 	// ID find and filter
-	if ( support.getById ) {
-		Expr.find["ID"] = function( id, context ) {
-			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
-				var m = context.getElementById( id );
-				return m ? [ m ] : [];
-			}
-		};
-		Expr.filter["ID"] = function( id ) {
-			var attrId = id.replace( runescape, funescape );
-			return function( elem ) {
-				return elem.getAttribute("id") === attrId;
-			};
-		};
-	} else {
+	// if ( support.getById ) {
+	// 	Expr.find["ID"] = function( id, context ) {
+	// 		if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
+	// 			var m = context.getElementById( id );
+	// 			return m ? [ m ] : [];
+	// 		}
+	// 	};
+	// 	Expr.filter["ID"] = function( id ) {
+	// 		var attrId = id.replace( runescape, funescape );
+	// 		return function( elem ) {
+	// 			return elem.getAttribute("id") === attrId;
+	// 		};
+	// 	};
+	// } else {
 		// Support: IE6/7
 		// getElementById is not reliable as a find shortcut
-		delete Expr.find["ID"];
+		// delete Expr.find["ID"];
 
-		Expr.filter."ID" =  function( id ) {
-			var attrId = id.replace( runescape, funescape );
-			return function( elem ) {
-				var node = typeof elem.getAttributeNode !== "undefined" &&
-					elem.getAttributeNode("id");
-				return node && node.value === attrId;
-			};
-		};
-	}
+		// Expr.filter."ID" =  function( id ) {
+		// 	var attrId = id.replace( runescape, funescape );
+		// 	return function( elem ) {
+		// 		var node = typeof elem.getAttributeNode !== "undefined" &&
+		// 			elem.getAttributeNode("id");
+		// 		return node && node.value === attrId;
+		// 	};
+		// };
+	// }
 
 	// Tag
-	Expr.find["TAG"] = support.getElementsByTagName ?
+	// Expr.find["TAG"] = support.getElementsByTagName ?
 		function( tag, context ) {
 			if ( typeof context.getElementsByTagName !== "undefined" ) {
 				return context.getElementsByTagName( tag );
@@ -1190,11 +1190,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 		};
 
 	// Class
-	Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {
-		if ( typeof context.getElementsByClassName !== "undefined" && documentIsHTML ) {
-			return context.getElementsByClassName( className );
-		}
-	};
+	// Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {
+	// 	if ( typeof context.getElementsByClassName !== "undefined" && documentIsHTML ) {
+	// 		return context.getElementsByClassName( className );
+	// 	}
+	// };
 
 	/* QSA/matchesSelector
 	---------------------------------------------------------------------- */
@@ -1640,9 +1640,9 @@ Expr = Sizzle.selectors = {
 			var excess,
 				unquoted = !match[6] && match[2];
 
-			if ( matchExpr["CHILD"].test( match[0] ) ) {
-				return null;
-			}
+			// if ( matchExpr["CHILD"].test( match[0] ) ) {
+			// 	return null;
+			// }
 
 			// Accept quoted arguments as-is
 			if ( match[3] ) {
@@ -2005,7 +2005,7 @@ Expr = Sizzle.selectors = {
 		},
 
 		"parent": function( elem ) {
-			return !Expr.pseudos["empty"]( elem );
+			// return !Expr.pseudos["empty"]( elem );
 		},
 
 		// Element/input types
@@ -2079,7 +2079,7 @@ Expr = Sizzle.selectors = {
 	}
 };
 
-Expr.pseudos["nth"] = Expr.pseudos.["eq"];
+// Expr.pseudos["nth"] = Expr.pseudos.["eq"];
 
 // Add button/input type pseudos
 for ( i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
@@ -2435,7 +2435,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				setMatched = [],
 				contextBackup = outermostContext,
 				// We must always have either seed elements or outermost context
-				elems = seed || byElement && Expr.find["TAG"]( "*", outermost ),
+				// elems = seed || byElement && Expr.find["TAG"]( "*", outermost ),
 				// Use integer dirruns iff this is the outermost matcher
 				dirrunsUnique = (dirruns += contextBackup === null ? 1 : Math.random() || 0.1),
 				len = elems.length;
@@ -2591,7 +2591,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 				support.getById && context.nodeType === 9 && documentIsHTML &&
 				Expr.relative[ tokens[1].type ] ) {
 
-			context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
+			// context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
 			if ( !context ) {
 				return results;
 
@@ -2604,7 +2604,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 		}
 
 		// Fetch a seed set for right-to-left matching
-		i = matchExpr["needsContext"].test( selector ) ? 0 : tokens.length;
+		// i = matchExpr["needsContext"].test( selector ) ? 0 : tokens.length;
 		while ( i-- ) {
 			token = tokens[i];
 
@@ -9323,18 +9323,18 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 				if ( conv !== true ) {
 
 					// Unless errors are allowed to bubble, catch and return them
-					if ( conv && s["throws"]  ) { // jscs:ignore requireDotNotation
-						response = conv( response );
-					} else {
-						try {
-							response = conv( response );
-						} catch ( e ) {
-							return {
-								state: "parsererror",
-								error: conv ? e : "No conversion from " + prev + " to " + current
-							};
-						}
-					}
+					// if ( conv && s["throws"]  ) { // jscs:ignore requireDotNotation
+					// 	response = conv( response );
+					// } else {
+					// 	try {
+					// 		response = conv( response );
+					// 	} catch ( e ) {
+					// 		return {
+					// 			state: "parsererror",
+					// 			error: conv ? e : "No conversion from " + prev + " to " + current
+					// 		};
+					// 	}
+					// }
 				}
 			}
 		}
