@@ -19,16 +19,16 @@
 </head>
 <body>
 <h1>Management Homepage</h1>
-
-
+	
+	
 	<button onclick = "setXML()">XML</button>
 	<button onclick = "setJSON()">JSON</button>
 	<p>Click the buttons above to show content</p>
 	<p id="content">
 
     </p>
-    <iframe id="source" frameborder="0" width="800" height="800"></iframe>
-
+    <iframe id="source" src="" frameborder=0 width="800" height="800"></iframe>
+    
 
 </body>
 </html>
