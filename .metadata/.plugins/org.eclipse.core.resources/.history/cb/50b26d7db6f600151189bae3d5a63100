@@ -1,0 +1,17 @@
+<html>  
+  <head>  
+        <title>Management System</title>  
+    </head>  
+    <body>  
+        <h1>Management System</h1>
+        <p> Hello ${name} </p>
+        <#if name == "Peter">
+            <h2>Welcome manager</h2>
+        <#else>
+        	<h2>Welcome </h2>
+        </#if>
+        
+        
+         
+    </body>  
+</html>

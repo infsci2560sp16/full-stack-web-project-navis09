@@ -1,0 +1,19 @@
+package com.resource;
+
+import com.test.*;
+import com.test.book.ProductBook;
+import java.util.List;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+
+@Path("/BookResource")
+public class BookResource {
+	
+	BookService bookservice = new BookService();
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<ProductBook> returntitle(){
+		return bookservice.getAllBook();
+	}
+}

@@ -1,0 +1,44 @@
+package com.test;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import com.test.book.*;
+
+
+public class BookService {
+	
+	public List<ProductBook> getAllBook(){
+		ProductBook p1 = new ProductBook("1","Web",10,23);
+		ProductBook p2 = new ProductBook("2","Database",12,25);
+		List<ProductBook> list = new ArrayList<ProductBook>();
+		list.add(p1);
+		list.add(p2);
+		return list;
+	}
+	
+	public List<ProductBook> getAllBooks() throws Exception{
+		List<ProductBook> list = new ArrayList<ProductBook>();
+		ResultSet rs = MysqlJdbc.connectQuery();
+		String pid;
+		String pname;
+		int saleamount;
+		int price;
+		
+		try{
+			while (rs.next()) {
+				pid = rs.getString("pid");
+				pname = rs.getString("pname");
+				saleamount = rs.getInt("saleamount");
+				price = rs.getInt("price");
+				ProductBook book = new ProductBook(pid,pname,saleamount,price);
+				list.add(book);
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return list; 
+	}
+	
+}

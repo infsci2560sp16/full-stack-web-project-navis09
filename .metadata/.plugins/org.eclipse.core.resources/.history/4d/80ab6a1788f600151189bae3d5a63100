@@ -1,0 +1,14 @@
+<html>  
+  <head>  
+        <title>FreeMarker测试</title>  
+    </head>  
+    <body>  
+        <h1>Hello,${name}</h1>
+        <#if name == "Kylin">
+            <h2>Happy birthday ~ </h2>
+        </#if>
+        <p>This is a FreeMarker demo. 
+        
+         
+    </body>  
+</html>

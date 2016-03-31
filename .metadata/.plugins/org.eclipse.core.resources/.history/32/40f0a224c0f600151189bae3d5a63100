@@ -1,0 +1,23 @@
+<html>  
+  <head>  
+        <title>Management System</title>  
+    </head>  
+    <body>  
+        <h1>Management System</h1>
+        <#if name == "Peter">
+            <h2>Welcome manager</h2>
+        <#else>
+        	<h2>Welcome ${name}</h2>
+        </#if>
+        
+        <p>dfas
+        <#list bookdata as top>
+        	<p>1 ${top}</p>
+        	
+        </#list>
+        
+        
+        
+         
+    </body>  
+</html>

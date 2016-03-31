@@ -1,0 +1,81 @@
+package com.test;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.test.book.ProductBook;
+
+
+public class MysqlJdbc {
+
+	public static ResultSet connectQuery(){
+			ResultSet rs = null;
+			try {
+		      Class.forName("com.mysql.jdbc.Driver");     //加载MYSQL JDBC驱动程序   
+		      //Class.forName("org.gjt.mm.mysql.Driver");
+		     //System.out.println("Success loading Mysql Driver!");
+		    }
+		    catch (Exception e) {
+		      //System.out.print("Error loading Mysql Driver!");
+		      e.printStackTrace();
+		    }
+		    try {
+		      Connection connect = DriverManager.getConnection(
+		          "jdbc:mysql://localhost:8889/Maibook","root","root");
+		           //连接URL为   jdbc:mysql//服务器地址/数据库名  ，后面的2个参数分别是登陆用户名和密码
+
+		      //System.out.println("Success connect Mysql server!");
+		      Statement stmt = connect.createStatement();
+		      rs = stmt.executeQuery("select * from Product_book");  
+		      
+		      
+		    }
+		    catch (Exception e) {
+		      //System.out.print("get data error! ");
+		      e.printStackTrace();
+		    }
+		    return rs;
+	}
+	
+	public List<ProductBook> getAllBooks() throws Exception{
+		List<ProductBook> list = new ArrayList<ProductBook>();
+		ResultSet rs = connectQuery();
+		String pid;
+		String pname;
+		int saleamount;
+		int price;
+		
+		try{
+			while (rs.next()) {
+				pid = rs.getString("pid");
+				pname = rs.getString("pname");
+				saleamount = rs.getInt("saleamount");
+				price = rs.getInt("price");
+				ProductBook book = new ProductBook(pid,pname,saleamount,price);
+				list.add(book);
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return list; 
+	}
+	
+	public static void main(String[] args) throws Exception{
+		ResultSet rs = connectQuery();
+		String output = new String();
+
+		try{
+			while(rs.next()){
+				output = rs.getString("pid");
+			}
+			System.out.println(output);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+			
+		
+	}
+}

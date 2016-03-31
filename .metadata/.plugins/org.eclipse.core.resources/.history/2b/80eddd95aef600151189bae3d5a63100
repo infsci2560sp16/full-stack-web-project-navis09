@@ -1,0 +1,45 @@
+package com.test;
+
+import java.sql.*;
+
+
+
+public class MysqlJdbc {
+
+	public static ResultSet connectQuery() throws SQLException{
+			ResultSet rs = null;
+			Connection connect=null;
+			try {
+		      Class.forName("com.mysql.jdbc.Driver");       
+		      //Class.forName("org.gjt.mm.mysql.Driver");
+		     //System.out.println("Success loading Mysql Driver!");
+		    }
+		    catch (Exception e) {
+		      //System.out.print("Error loading Mysql Driver!");
+		      e.printStackTrace();
+		    }
+		    try {
+		      connect = DriverManager.getConnection(
+		          "jdbc:mysql://localhost:8889/Maibook","root","root");
+		           
+
+		      //System.out.println("Success connect Mysql server!");
+		      Statement stmt = connect.createStatement();
+		      rs = stmt.executeQuery("select * from Product_book");  
+		      
+		      
+		    }
+		    catch (Exception e) {
+		      //System.out.print("get data error! ");
+		      e.printStackTrace();
+		    }
+		    finally{
+		    	if(connect!=null) connect.close();
+		    }
+		    return rs;
+	}
+	
+	
+	
+
+}

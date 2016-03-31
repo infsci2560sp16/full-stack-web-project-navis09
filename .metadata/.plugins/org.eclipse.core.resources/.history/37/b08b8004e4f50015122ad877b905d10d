@@ -1,0 +1,12 @@
+package com.test;
+
+public class MysqlTest {
+	public static void main(){
+		MysqlJdbc test1 = new MysqlJdbc();
+		String[] output = test1.connectDb();
+		int i=0;
+		while(output[++i]!=null){
+			System.out.println(output[i]);
+		}
+	}
+}

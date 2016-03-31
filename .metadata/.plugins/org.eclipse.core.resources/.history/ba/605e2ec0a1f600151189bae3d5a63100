@@ -1,0 +1,81 @@
+package com.resource;
+
+import com.test.*;
+import com.test.book.ProductBook;
+import java.util.List;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import java.sql.*;
+import com.database.*;
+
+@Path("/BookResource")
+public class BookResource {
+	
+	BookService bookservice = new BookService();
+	
+//	@Path("/JSON")
+//	@POST
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public String addBook(ProductBook book){
+//		
+//		bookservice.addBook(book);
+//		
+//	}
+	
+	@Path("/XML")
+	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	public List<ProductBook> returnXML(){
+		return bookservice.getAllBook();
+	}
+	
+	@Path("/JSON")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<ProductBook> returnJSON(){
+		return bookservice.getAllBook();
+	}
+	
+	
+	@Path("/Database")
+	@GET
+	@Produces(MediaType.TEXT_HTML)
+	public String returnDb(){
+		return "";
+	}
+	
+	public String returnDatabaseStatus() throws Exception{
+		
+		PreparedStatement query = null;
+		String myString = null;
+		String returnString = null;
+		Connection conn = null;
+		
+		try{
+			conn = Database09.Database09Conn().getConnection();
+			query = conn.prepareStatement("select * from Product_book where amount = 10");
+			ResultSet rs = query.executeQuery();
+			
+			while(rs.next()){
+				myString = rs.getString("pname");
+			}
+			
+			query.close();
+			
+			returnString = "<p>Database result </p>" + "<p>" + myString + "</p>";
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			
+		}
+		return returnString;
+		
+	}
+	
+	
+	
+	
+}

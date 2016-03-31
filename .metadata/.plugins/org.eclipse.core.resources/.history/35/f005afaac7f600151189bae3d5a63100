@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Management Homepage</title>
+<script>
+	function setContent(x){
+		document.getElementById("content").innerHTML=
+			"<a href='http://localhost:8080/hello/rest/BookResource/"+x+"'>"+x+"</a>"
+	}
+</script>
+
+</head>
+<body>
+<h1>Management Homepage</h1>
+	
+	
+	<button onclick = "setContent()">XML</button>
+	<button onclick = "setContent()">JSON</button>
+	<p id="content">
+    </p>
+    <p id="other">
+    <a href="http://localhost:8080/hello/rest/BookResource/XML">XML Link</a>
+    </p>
+
+</body>
+</html>

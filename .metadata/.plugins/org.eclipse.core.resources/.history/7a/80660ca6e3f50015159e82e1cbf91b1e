@@ -1,0 +1,53 @@
+package com.test;
+
+import java.sql.*;
+
+public class MysqlJdbc {
+	public String[] output = new String[100];
+	public String[] connectDb(){
+			try {
+		      Class.forName("com.mysql.jdbc.Driver");     //加载MYSQL JDBC驱动程序   
+		      //Class.forName("org.gjt.mm.mysql.Driver");
+		     System.out.println("Success loading Mysql Driver!");
+		    }
+		    catch (Exception e) {
+		      System.out.print("Error loading Mysql Driver!");
+		      e.printStackTrace();
+		    }
+		    try {
+		      Connection connect = DriverManager.getConnection(
+		          "jdbc:mysql://localhost:8889/Maibook","root","root");
+		           //连接URL为   jdbc:mysql//服务器地址/数据库名  ，后面的2个参数分别是登陆用户名和密码
+
+		      System.out.println("Success connect Mysql server!");
+		      Statement stmt = connect.createStatement();
+		      ResultSet rs = stmt.executeQuery("select * from Product_book");  
+		      int i=0;
+		      while (rs.next()) {
+		    	output[i++] = rs.getString("pname");
+		      }
+		    }
+		    catch (Exception e) {
+		      System.out.print("get data error! ");
+		      e.printStackTrace();
+		    }
+		    return output;
+	}
+	
+//	public String print(String[] data){
+//		String result="";
+//		for(int i=0;i<data.length;i++){
+//			result = result + data[i];
+//		}
+//		return result;
+//	
+//	}
+  public static void main(String[] args) {
+    MysqlJdbc my = new MysqlJdbc();
+    String[] output = my.connectDb();
+    int i=0;
+    while(output[++i]!=null){
+    	System.out.println(output[i]);
+    }
+  }
+}

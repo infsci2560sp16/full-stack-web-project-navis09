@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Management Homepage</title>
+<script>
+	function setXML(){
+		document.getElementById("content").innerHTML=
+			"<a href='http://localhost:8080/hello/rest/BookResource/XML'>XML</a>";
+		document.getElementById("source").src="http://localhost:8080/hello/rest/BookResource/XML";
+	}
+	function setJSON(){
+		document.getElementById("content").innerHTML=
+			"<a href='http://localhost:8080/hello/rest/BookResource/JSON'>JSON</a>";
+		document.getElementById("source").src="http://localhost:8080/hello/rest/BookResource/JSON";
+	}
+</script>
+
+</head>
+<body>
+<h1>Management Homepage</h1>
+	
+	
+	<button onclick = "setXML()">XML</button>
+	<button onclick = "setJSON()">JSON</button>
+	<p id="content">
+	Click the buttons above to show the link of data.
+    </p>
+    <iframe id="source" src="index.html" width="800" height="800"></iframe>
+    
+
+</body>
+</html>

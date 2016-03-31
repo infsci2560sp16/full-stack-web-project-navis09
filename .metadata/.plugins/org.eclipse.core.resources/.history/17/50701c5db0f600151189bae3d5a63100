@@ -1,0 +1,59 @@
+package com.resource;
+
+import com.test.*;
+import com.test.book.ProductBook;
+import java.util.List;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+
+
+@Path("/BookResource")
+public class BookResource {
+	
+	BookService bookservice = new BookService();
+	MysqlJdbc mysql = new MysqlJdbc();
+	
+	@Path("/JSON")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String addBook(ProductBook book){
+		
+		bookservice.addBook(book);
+		return "";
+		
+	}
+	
+	@Path("/XML")
+	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	public List<ProductBook> returnXML(){
+		return bookservice.getBookExample();
+	}
+	
+	@Path("/JSON")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<ProductBook> returnJSON(){
+		return bookservice.getBookExample();
+	}
+	
+	
+	@Path("/DbXml")
+	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	public List<ProductBook> returnDbXml() throws Exception{
+		return mysql.getAllBooks();
+	}
+	
+	@Path("/DbJson")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<ProductBook> returnDbJson() throws Exception{
+		return mysql.getAllBooks();
+	}
+	
+	
+	
+	
+}

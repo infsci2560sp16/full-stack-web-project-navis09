@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Management Homepage</title>
+<script>
+	function setContent(){
+		document.getElementById("content").innerHTML="content is";
+	}
+</script>
+
+</head>
+<body>
+<h1>Management Homepage</h1>
+
+	<form>
+	<input type="submit" value="XML" onclick="setContent()">
+	<input type="submit" value="JSON" onclick="setContent()">
+	</form>
+    <p id="content">
+    
+    <a href="http://localhost:8080/hello/rest/BookResource/XML">XML Link</a>
+    </p>
+
+</body>
+</html>

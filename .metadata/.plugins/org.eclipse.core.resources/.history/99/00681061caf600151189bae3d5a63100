@@ -1,0 +1,25 @@
+<html>  
+  <head>  
+        <title>Management System</title>  
+    </head>  
+    <body>
+    
+      
+        <h1>Management System</h1>
+        <#if name == "Peter">
+            <h2>Welcome manager</h2>
+        <#else>
+        	<h2>Welcome ${name}</h2>
+        </#if>
+        
+        <h3>Top sales</h3>
+        <#list bookdata as book>
+        	<p>${book.name}</p>
+        	
+        </#list>
+        
+        
+        
+         
+    </body>  
+</html>

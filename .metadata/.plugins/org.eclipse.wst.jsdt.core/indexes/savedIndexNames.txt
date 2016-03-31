@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+/Users/JasonKing/full-stack-web-project-navis09/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2157622968.index
+769107451.index
+4088624648.index
+3038921838.index
+560361092.index
+3070904283.index

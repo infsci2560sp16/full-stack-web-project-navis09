@@ -1,0 +1,27 @@
+package com.test;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import com.test.book.*;
+
+
+public class BookService {
+	
+	public List<ProductBook> getBookExample(){
+		ProductBook p1 = new ProductBook("1","Web",10,23);
+		ProductBook p2 = new ProductBook("2","Database",12,25);
+		List<ProductBook> list = new ArrayList<ProductBook>();
+		list.add(p1);
+		list.add(p2);
+		return list;
+	}
+	
+	public List<ProductBook> addBook(ProductBook book){
+		List<ProductBook> list = new ArrayList<ProductBook>();
+		
+		return list;
+	}
+	
+	
+}

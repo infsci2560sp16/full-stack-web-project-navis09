@@ -1,0 +1,26 @@
+<html>  
+  <head>  
+        <title>Management System</title>  
+    </head>  
+    <body>
+    
+      
+        <h1>Management System</h1>
+        <p style="position:relative;bottom:10px">This page is used as the welcome page of the back-end system.</p>
+        <#if name == "Peter">
+            <h3>Welcome <span style="color:lightblue">manager</span></h3>
+        <#else>
+        	<h3>Welcome <span style="color:lightblue">${name}</span></h3>
+        </#if>
+        
+        <h2>Top sales</h2>
+        <#list bookdata as book>
+        	<p>${book.name}</p>
+        	
+        </#list>
+        
+        
+        
+         
+    </body>  
+</html>

@@ -1,0 +1,25 @@
+package com.test;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+
+@Path("/message")
+public class Message {
+	
+	@GET
+	@Produces(MediaType.TEXT_HTML)
+	public String returnTitle(){
+		return "<p>Java message</p>";
+	}
+	
+//	@GET
+//	@Produces(MediaType.TEXT_HTML)
+//	public String[] returndb(){
+//		MysqlJdbc my = new MysqlJdbc();
+//		String[] output = my.connectDb();
+//		return output;
+//	}
+}
+
+
+

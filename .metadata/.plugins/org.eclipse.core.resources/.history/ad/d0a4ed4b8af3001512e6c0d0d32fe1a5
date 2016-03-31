@@ -1,0 +1,5 @@
+package com.test.servlet.message;
+
+public class Message {
+
+}
